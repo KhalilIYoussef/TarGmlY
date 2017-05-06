@@ -1,6 +1,4 @@
 package khaliliyoussef.gradproject.data;
-
-
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -12,6 +10,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 
 
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ARABIC;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.TABLE_NAME;
 
 // Verify that TransContentProvider extends from ContentProvider and implements required methods
@@ -20,8 +19,9 @@ public class TransContentProvider extends ContentProvider {
     // Define final integer constants for the directory of tasks and a single item.
     // It's convention to use 100, 200, 300, etc for directories,
     // and related ints (101, 102, ..) for items in that directory.
-    public static final int TASKS = 100;
-    public static final int TASK_WITH_ID = 101;
+    public static final int WORDS = 100;
+    public static final int WORD_ENGLISH = 102;
+    public static final int WORD_ARABIC=103;
 
     // CDeclare a static variable for the Uri matcher that you construct
     private static final UriMatcher sUriMatcher = buildUriMatcher();
@@ -41,8 +41,10 @@ public class TransContentProvider extends ContentProvider {
           For each kind of uri you may want to access, add the corresponding match with addURI.
           The two calls below add matches for the task directory and a single item by ID.
          */
-        uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS, TASKS);
-        uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS + "/#", TASK_WITH_ID);
+        uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS, WORDS);
+        uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS+"/english" , WORD_ENGLISH);
+        uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS +"/arabic", WORD_ARABIC);
+
 
         return uriMatcher;
     }
@@ -77,7 +79,7 @@ public class TransContentProvider extends ContentProvider {
         Uri returnUri; // URI to be returned
 
         switch (match) {
-            case TASKS:
+            case WORDS:
                 // Insert new values into the database
                 // Inserting values into tasks table
                 long id = db.insert(TABLE_NAME, null, values);
@@ -111,14 +113,24 @@ public class TransContentProvider extends ContentProvider {
 
         // Write URI match code and set a variable to return a Cursor
         int match = sUriMatcher.match(uri);
-        Cursor retCursor;
+        Cursor retCursor = null;
 
         // Query for the tasks directory and write a default case
         switch (match) {
             // Query for the tasks directory
-            case TASKS:
+            case WORDS:
                 retCursor =  db.query(TABLE_NAME,
                         projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+            case WORD_ARABIC:
+                //Uri contetn://<Authority>/words/arabic
+                retCursor =  db.query(TABLE_NAME,
+                        new String[]{COLUMN_ARABIC},
                         selection,
                         selectionArgs,
                         null,
@@ -153,11 +165,10 @@ public class TransContentProvider extends ContentProvider {
         // [Hint] Use selections to delete an item by its row ID
         switch (match) {
             // Handle the single item case, recognized by the ID included in the URI path
-            case TASK_WITH_ID:
+            case WORDS:
                 // Get the task ID from the URI path
-                String id = uri.getPathSegments().get(1);
                 // Use selections/selectionArgs to filter for this ID
-                tasksDeleted = db.delete(TABLE_NAME, "_id=?", new String[]{id});
+                tasksDeleted = db.delete(TABLE_NAME, null, null);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);

@@ -2,28 +2,54 @@ package khaliliyoussef.gradproject;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.database.Cursor;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import khaliliyoussef.gradproject.data.InsertWords;
+import khaliliyoussef.gradproject.data.TransContract;
+
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ARABIC;
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ENGLISH;
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI;
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ARABIC;
+
 public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int RC_OCR_CAPTURE = 9003;
     EditText editText;
+    ImageButton searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editText= (EditText) findViewById(R.id.EditText_word);
+        searchButton= (ImageButton) findViewById(R.id.searchButton);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+             String s = String.valueOf(getContentResolver().query(CONTENT_URI_ARABIC,
+                        new String[]{COLUMN_ARABIC},
+                        COLUMN_ENGLISH+ "=?",
+                        new String[]{editText.getText().toString()},
+                        null));
+                Toast.makeText(MainActivity.this,s,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -48,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         else if(item.getItemId()==R.id.addWord)
         {
-
+            InsertWords.insertFakeData(this);
         }
 
 

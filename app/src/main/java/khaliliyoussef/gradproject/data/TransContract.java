@@ -15,14 +15,15 @@ public class TransContract {
     // Define the possible paths for accessing data in this contract
     // This is the path for the "tasks" directory
     public static final String PATH_TASKS = "words";
-
+    public static final String PATH_ARABIC = "arabic";
     /* TaskEntry is an inner class that defines the contents of the task table */
     public static final class TaskEntry implements BaseColumns {
 
         // TaskEntry content URI = base content URI + path
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).build();
-
+public static final Uri CONTENT_URI_ARABIC =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).appendPath(PATH_ARABIC).build();
 
         // Task table and column names
         public static final String TABLE_NAME = "words";

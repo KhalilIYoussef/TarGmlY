@@ -146,6 +146,7 @@ public class CameraSourcePreview extends ViewGroup {
         // of the dimensions.  We scale up based on the dimension requiring the most correction, and
         // compute a crop offset for the other dimension.
         if (widthRatio > heightRatio) {
+
             childWidth = viewWidth;
             childHeight = (int) ((float) previewHeight * widthRatio);
             childYOffset = (childHeight - viewHeight) / 2;

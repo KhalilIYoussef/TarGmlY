@@ -18,10 +18,10 @@ public class InsertWords
 
         //create a list of fake guests
         List<ContentValues> list = new ArrayList<ContentValues>();
-
+//notice all english words are small case and arabic are single word
         ContentValues cv = new ContentValues();
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH, "Android");
-        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"نظام تشغيل");
+        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH, "android");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"روبوت");
         list.add(cv);
 
 
@@ -44,15 +44,6 @@ public class InsertWords
             //error while inserting the values
             //too bad :(
         }
-
-
-
-//        ContentValues contentValues = new ContentValues();
-        // Put the task description and selected mPriority into the ContentValues
-//        contentValues.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION, input);
-//        contentValues.put(TaskContract.TaskEntry.COLUMN_PRIORITY, mPriority);
-        // Insert the content values via a ContentResolver
-//        Uri uri = getContentResolver().insert(TaskContract.TaskEntry.CONTENT_URI, contentValues);
 
 
 

@@ -8,9 +8,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ARABIC;
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ENGLISH;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.TABLE_NAME;
 
 // Verify that TransContentProvider extends from ContentProvider and implements required methods
@@ -44,6 +46,8 @@ public class TransContentProvider extends ContentProvider {
         uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS, WORDS);
         uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS+"/english" , WORD_ENGLISH);
         uriMatcher.addURI(TransContract.AUTHORITY, TransContract.PATH_TASKS +"/arabic", WORD_ARABIC);
+
+
 
 
         return uriMatcher;
@@ -131,6 +135,17 @@ public class TransContentProvider extends ContentProvider {
                 //Uri contetn://<Authority>/words/arabic
                 retCursor =  db.query(TABLE_NAME,
                         new String[]{COLUMN_ARABIC},
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+
+            //Uri contetn://<Authority>/words/arabic
+            case WORD_ENGLISH :
+                retCursor =  db.query(TABLE_NAME,
+                        new String[]{COLUMN_ENGLISH},
                         selection,
                         selectionArgs,
                         null,

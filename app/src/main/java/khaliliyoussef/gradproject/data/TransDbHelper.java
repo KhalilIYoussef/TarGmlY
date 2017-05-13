@@ -17,9 +17,11 @@ public class TransDbHelper extends SQLiteOpenHelper {
 
 
     // Constructor
-    TransDbHelper(Context context) {
+    public TransDbHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
+
+
 
 
     /**

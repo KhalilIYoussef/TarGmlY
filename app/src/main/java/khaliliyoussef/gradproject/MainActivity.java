@@ -3,6 +3,7 @@ package khaliliyoussef.gradproject;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,18 +17,19 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import java.util.ArrayList;
 import java.util.Locale;
-
 import khaliliyoussef.gradproject.data.InsertWords;
-import khaliliyoussef.gradproject.data.TransContract;
+import khaliliyoussef.gradproject.data.TransDbHelper;
 
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ARABIC;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ENGLISH;
-import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ARABIC;
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ENGLISH;
+import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.TABLE_NAME;
 
 public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int RC_OCR_CAPTURE = 9003;
+
     EditText editText;
     ImageButton searchButton;
 
@@ -37,17 +39,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editText= (EditText) findViewById(R.id.EditText_word);
         searchButton= (ImageButton) findViewById(R.id.searchButton);
-
+        //insert ne words
+             InsertWords.insertFakeData(this);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean isEnglish = true;
+                String str=editText.getText().toString();
 
-             String s = String.valueOf(getContentResolver().query(CONTENT_URI_ARABIC,
-                        new String[]{COLUMN_ARABIC},
-                        COLUMN_ENGLISH+ "=?",
-                        new String[]{editText.getText().toString()},
-                        null));
-                Toast.makeText(MainActivity.this,s,Toast.LENGTH_SHORT).show();
+
+                for ( char c : str.toCharArray() ) {
+                    if ( Character.UnicodeBlock.of(c) != Character.UnicodeBlock.BASIC_LATIN ) {
+                        isEnglish = false;
+                        break;
+                    }
+                }
+                if(isEnglish)
+                {
+                    str.toLowerCase();
+                    Cursor cursor = getContentResolver().query(CONTENT_URI_ARABIC,
+            new String[]{COLUMN_ARABIC},
+            COLUMN_ENGLISH + "=?",
+            new String[]{str},
+            null);
+                    while (cursor.moveToNext()) {
+                        int index = cursor.getColumnIndex(COLUMN_ARABIC);
+                        String s = cursor.getString(index);
+                        Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+               {
+
+                   Cursor     cursor = getContentResolver().query(CONTENT_URI_ENGLISH,
+                           new String[]{COLUMN_ENGLISH},
+                           COLUMN_ARABIC + "=?",
+                           new String[]{str},
+                           null);
+                   while (cursor.moveToNext()) {
+                       int index = cursor.getColumnIndex(COLUMN_ENGLISH);
+//                       Toast.makeText(MainActivity.this, index, Toast.LENGTH_SHORT).show();
+                       String s = cursor.getString(index);
+                       Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                   }
+                 }
+
             }
         });
     }
@@ -90,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
-                "اوعى تتكلم");
+                "say something");
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {

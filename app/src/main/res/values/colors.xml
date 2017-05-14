@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!---->
     <color name="colorPrimary">#607D8B</color>
+    <!-- this for the status bar -->
     <color name="colorPrimaryDark">#455A64</color>
+    <!---->
     <color name="colorPrimaryLight">#CFD8DC</color>
+    <!---->
     <color name="colorAccent">#00BCD4</color>
+    <!--text color for tool bar-->
+    <color name="textColor">#CFD8DC</color>
+    <!--the icon color-->
+    <color name="iconColor">#00BCD4</color>
+    <color name="splashBackground">#d53f8756</color>
 </resources>

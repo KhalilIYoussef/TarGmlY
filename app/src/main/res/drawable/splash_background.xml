@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <color android:color="@color/splashBackground"></color>
+    </item>
+    <item >
+        <!--it must be in the drawable folder-->
+        <bitmap android:src="@drawable/ic_light_bulb"
+            android:tileMode="disabled"
+            android:gravity="center">
+
+        </bitmap>
+    </item>
+</layer-list>

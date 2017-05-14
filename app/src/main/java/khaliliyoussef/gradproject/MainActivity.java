@@ -3,47 +3,70 @@ package khaliliyoussef.gradproject;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
+
 import java.util.ArrayList;
 import java.util.Locale;
 import khaliliyoussef.gradproject.data.InsertWords;
-import khaliliyoussef.gradproject.data.TransDbHelper;
 
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ARABIC;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ENGLISH;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ARABIC;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ENGLISH;
-import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.TABLE_NAME;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
+    Toolbar toolbar;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int RC_OCR_CAPTURE = 9003;
 
     EditText editText;
+    TextView textView;
     ImageButton searchButton;
+    ImageButton cameraButton;
+    ImageButton audioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        toolbar.getBackground().setAlpha(0);
+        textView = (TextView) findViewById(R.id.textView);
+        cameraButton= (ImageButton) findViewById(R.id.cameraButton);
+        audioButton= (ImageButton) findViewById(R.id.audioButton);
+        searchButton= (ImageButton) findViewById(R.id.searchButton);
         editText= (EditText) findViewById(R.id.EditText_word);
         searchButton= (ImageButton) findViewById(R.id.searchButton);
-        //insert ne words
-             InsertWords.insertFakeData(this);
+        //insert general words words
+            // InsertWords.insertGeneralWords(this);
+        //insert Scientific words
+        InsertWords.insertScientificWords(this);
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                imm.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
+                TextToSpeech tts=null;
                 boolean isEnglish = true;
                 String str=editText.getText().toString();
 
@@ -65,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
                     while (cursor.moveToNext()) {
                         int index = cursor.getColumnIndex(COLUMN_ARABIC);
                         String s = cursor.getString(index);
-                        Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                        textView.setText(s);
+
                     }
                 }
                 else
@@ -78,14 +103,35 @@ public class MainActivity extends AppCompatActivity {
                            null);
                    while (cursor.moveToNext()) {
                        int index = cursor.getColumnIndex(COLUMN_ENGLISH);
-//                       Toast.makeText(MainActivity.this, index, Toast.LENGTH_SHORT).show();
                        String s = cursor.getString(index);
-                       Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                     //Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                       textView.setText(s);
+//                       if(s!=null||!s.isEmpty()) {
+//                           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                               tts.speak(String.valueOf(s), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+//                           } else
+//                               tts.speak("hi there", TextToSpeech.QUEUE_ADD, null);
+//                       }
                    }
                  }
 
             }
         });
+
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OcrCaptureActivity.class);
+                startActivityForResult(intent, RC_OCR_CAPTURE);
+            }
+        });
+        audioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                askSpeechInput();
+            }
+        });
+
     }
 
 
@@ -98,21 +144,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.audioToText)
+        if(item.getItemId()==R.id.addWord)
         {
-            askSpeechInput();
+            InsertWords.insertGeneralWords(this);
         }
-
-        else if(item.getItemId()==R.id.imageToText)
-            {
-                Intent intent = new Intent(MainActivity.this, OcrCaptureActivity.class);
-                startActivityForResult(intent, RC_OCR_CAPTURE);
-            }
-        else if(item.getItemId()==R.id.addWord)
+else if(item.getItemId()==R.id.addScientificWords)
         {
-            InsertWords.insertFakeData(this);
+            InsertWords.insertScientificWords(this);
         }
-
 
         return true;
     }
@@ -147,7 +186,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     String text = data.getStringExtra(OcrCaptureActivity.TextBlockObject);
                     Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
-                    editText.setText(text);
+
+                   // editText.setText(text);
+                    textView.setText(text);
                     //TODO  Log.d(TAG, "Text read: " + text);
                 } else
                 {
@@ -165,7 +206,8 @@ public class MainActivity extends AppCompatActivity {
                     if (resultCode == RESULT_OK && null != data) {
 
                         ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                        editText.setText(result.get(0));
+                       // editText.setText(result.get(0));
+                        textView.setText(result.get(0));
                     }
                     break;
                 }

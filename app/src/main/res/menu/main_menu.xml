@@ -3,19 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item app:showAsAction="never"
     android:id="@+id/addWord"
-    android:title="Add Word">
+    android:title="General words">
 
 </item>
-<item app:showAsAction="always"
-    android:icon="@mipmap/audio"
-    android:id="@+id/audioToText"
-    android:title="Audio Detect">
-
-</item>
-    <item app:showAsAction="always"
-        android:id="@+id/imageToText"
-        android:icon="@mipmap/camera"
-        android:title="Image Detect">
+    <item app:showAsAction="never"
+        android:id="@+id/addScientificWords"
+        android:title="Computer Science">
 
     </item>
 </menu>

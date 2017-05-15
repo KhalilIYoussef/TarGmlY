@@ -1,8 +1,11 @@
 package khaliliyoussef.gradproject;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
+import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
@@ -63,6 +66,24 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                //TODO change the button background and turn it back
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    searchButton.setBackground(getDrawable(R.drawable.button_background_pressed));
+                }
+                else
+                searchButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
+                new Handler().postDelayed(new Runnable() {
+
+                    public void run() {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            searchButton.setBackground(getDrawable(R.drawable.button_background));
+                        }
+                        else
+                            searchButton.setBackground(getResources().getDrawable(R.drawable.button_background));
+                    }
+                }, 250);
+
+
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                 imm.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
@@ -121,6 +142,22 @@ public class MainActivity extends AppCompatActivity
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    cameraButton.setBackground(getDrawable(R.drawable.button_background_pressed));
+                }
+                else
+                    cameraButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
+                new Handler().postDelayed(new Runnable() {
+
+                    public void run() {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            cameraButton.setBackground(getDrawable(R.drawable.button_background));
+                        }
+                        else
+                            cameraButton.setBackground(getResources().getDrawable(R.drawable.button_background));
+                    }
+                }, 250);
                 Intent intent = new Intent(MainActivity.this, OcrCaptureActivity.class);
                 startActivityForResult(intent, RC_OCR_CAPTURE);
             }
@@ -128,6 +165,22 @@ public class MainActivity extends AppCompatActivity
         audioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    audioButton.setBackground(getDrawable(R.drawable.button_background_pressed));
+                }
+                else
+                    audioButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
+                new Handler().postDelayed(new Runnable() {
+
+                    public void run() {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            audioButton.setBackground(getDrawable(R.drawable.button_background));
+                        }
+                        else
+                            audioButton.setBackground(getResources().getDrawable(R.drawable.button_background));
+                    }
+                }, 250);
                 askSpeechInput();
             }
         });

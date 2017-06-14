@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!---->
-    <color name="colorPrimary">#607D8B</color>
+    <!--the square method colors-->
+
+    <!-- the color that define them all -->
+    <color name="colorPrimary">#367ABD</color>
+
     <!-- this for the status bar -->
-    <color name="colorPrimaryDark">#455A64</color>
-    <!---->
-    <color name="colorPrimaryLight">#CFD8DC</color>
-    <!---->
-    <color name="colorAccent">#00BCD4</color>
-    <!--text color for tool bar-->
-    <color name="textColor">#CFD8DC</color>
+    <color name="colorPrimaryDark">#004f8c</color>
+
+    <!-- the textview , editText (any Text) color for the app-->
+    <color name="colorPrimaryLight">#6fa9f0</color>
+    <!--the same as the nav background-->
+    <color name="windowBackground">#373737</color>
+
+    <!-- the floating action button in the app the line under the editText-->
+    <color name="colorAccent">#F3A530</color>
+
+    <!--t color for tool bar-->
+    <color name="textColor">#EC4A94</color>
     <!--the icon color-->
-    <color name="iconColor">#00BCD4</color>
-    <color name="splashBackground">#d53f8756</color>
+
+    <color name="menuIconColor">#00BCD4</color>
+    <color name="splashBackground">#88C542</color>
+
+
 </resources>

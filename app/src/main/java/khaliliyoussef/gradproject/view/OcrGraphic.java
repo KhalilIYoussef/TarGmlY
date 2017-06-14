@@ -1,5 +1,5 @@
 
-package khaliliyoussef.gradproject;
+package khaliliyoussef.gradproject.view;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

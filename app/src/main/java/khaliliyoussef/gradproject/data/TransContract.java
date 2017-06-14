@@ -23,7 +23,7 @@ public class TransContract {
         // TaskEntry content URI = base content URI + path
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).build();
-public static final Uri CONTENT_URI_ARABIC =
+        public static final Uri CONTENT_URI_ARABIC =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).appendPath(PATH_ARABIC).build();
         public static final Uri CONTENT_URI_ENGLISH =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).appendPath(PATH_ENGLISH).build();

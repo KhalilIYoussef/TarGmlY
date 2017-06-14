@@ -203,8 +203,28 @@ public class TransContentProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
+        final SQLiteDatabase db =mTransDbHelper.getWritableDatabase();
+        int match =sUriMatcher.match(uri);
+        int taskUpdated=0;
+        switch (match)
+        {
+            case WORD_ARABIC:
 
-        throw new UnsupportedOperationException("Not yet implemented");
+                break;
+            case WORD_ENGLISH:
+                break;
+            case WORDS:
+
+
+
+                break;
+
+           default:
+               throw new android.database.SQLException("uknown uri"+uri);
+        }
+
+return  taskUpdated;
+
     }
 
 

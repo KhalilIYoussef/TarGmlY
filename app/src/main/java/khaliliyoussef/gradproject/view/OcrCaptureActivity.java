@@ -1,5 +1,5 @@
 
-package khaliliyoussef.gradproject;
+package khaliliyoussef.gradproject.view;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -32,6 +32,7 @@ import com.google.android.gms.vision.text.TextRecognizer;
 import java.io.IOException;
 import java.util.Locale;
 
+import khaliliyoussef.gradproject.R;
 import khaliliyoussef.gradproject.camera.CameraSource;
 import khaliliyoussef.gradproject.camera.CameraSourcePreview;
 import khaliliyoussef.gradproject.camera.GraphicOverlay;

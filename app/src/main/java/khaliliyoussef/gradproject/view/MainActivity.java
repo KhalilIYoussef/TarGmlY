@@ -1,13 +1,19 @@
-package khaliliyoussef.gradproject;
+package khaliliyoussef.gradproject.view;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -22,8 +28,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import khaliliyoussef.gradproject.R;
 import khaliliyoussef.gradproject.data.InsertWords;
 
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ARABIC;
@@ -31,8 +40,7 @@ import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ENG
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ARABIC;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ENGLISH;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int RC_OCR_CAPTURE = 9003;
@@ -44,13 +52,25 @@ public class MainActivity extends AppCompatActivity
     ImageButton audioButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        toolbar.getBackground().setAlpha(0);
+
+        //make the tool bar transparent
+       toolbar.getBackground().setAlpha(0);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+          Intent i =getIntent();
         textView = (TextView) findViewById(R.id.textView);
         cameraButton= (ImageButton) findViewById(R.id.cameraButton);
         audioButton= (ImageButton) findViewById(R.id.audioButton);
@@ -122,7 +142,7 @@ public class MainActivity extends AppCompatActivity
                            COLUMN_ARABIC + "=?",
                            new String[]{str},
                            null);
-                   while (cursor.moveToNext()) {
+                   while (cursor.moveToNext())  {
                        int index = cursor.getColumnIndex(COLUMN_ENGLISH);
                        String s = cursor.getString(index);
                      //Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
@@ -185,6 +205,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+
     }
 
 
@@ -199,11 +221,25 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.addWord)
         {
-            InsertWords.insertGeneralWords(this);
+            new AsyncTaskLoader(this) {
+                @Override
+                public Object loadInBackground() {
+                    InsertWords.insertGeneralWords(MainActivity.this);
+                    return null;
+                }
+            };
+
         }
 else if(item.getItemId()==R.id.addScientificWords)
         {
-            InsertWords.insertScientificWords(this);
+
+            new AsyncTaskLoader(this) {
+                @Override
+                public Object loadInBackground() {
+                    InsertWords.insertScientificWords(MainActivity.this);
+                    return null;
+                }
+            };
         }
 
         return true;
@@ -270,5 +306,40 @@ else if(item.getItemId()==R.id.addScientificWords)
 
 
 }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
 }
 

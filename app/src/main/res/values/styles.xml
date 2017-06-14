@@ -5,20 +5,20 @@
         <!-- Customize your theme here. -->
 
     </style>
-<style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
-</style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
     <style name="MyCustomToolBar" parent="ThemeOverlay.AppCompat.Light">
         <!--the text color in the tool bar-->
-        <item name="android:textColorPrimary" >@color/textColor</item>
+        <item name="android:textColorPrimary">@color/textColor</item>
         <!--the setting icon color in the tool bar-->
-        <item name="android:textColorSecondary">@color/iconColor</item>
+        <item name="android:textColorSecondary">@color/menuIconColor</item>
 
     </style>
-<style name="AppTheme.Splash" parent="Theme.AppCompat.NoActionBar">
-    <item name="windowNoTitle">true</item>
-    <item name="android:windowFullscreen">true</item>
-</style>
+
+
 </resources>

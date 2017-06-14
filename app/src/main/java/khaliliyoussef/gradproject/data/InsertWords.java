@@ -3,6 +3,10 @@ package khaliliyoussef.gradproject.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
+import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,15 +14,21 @@ import java.util.List;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI;
 
 
-public class InsertWords {
+public class InsertWords  {
+    //create a list of fake guests
+  static   List<ContentValues> list;
+    //notice all english words are small case and arabic are single word
+   static ContentValues cv;
+
+
 
     public static void insertGeneralWords(Context context) {
 
 
         //create a list of fake guests
-        List<ContentValues> list = new ArrayList<>();
+         list = new ArrayList<>();
 //notice all english words are small case and arabic are single word
-        ContentValues cv = new ContentValues();
+         cv = new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH, "android");
         cv.put(TransContract.TaskEntry.COLUMN_ARABIC, "روبوت");
         list.add(cv);
@@ -2191,13 +2201,8 @@ public class InsertWords {
     }
 
     public static void insertScientificWords(Context context) {
-        //create a list of fake guests
-        List<ContentValues> list = new ArrayList<>();
-//notice all english words are small case and arabic are single word
-        ContentValues
-
-
-                cv = new ContentValues();
+        list = new ArrayList<>();
+        cv = new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"mouse");
         cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فأرة");
         list.add(cv);
@@ -2495,4 +2500,6 @@ public class InsertWords {
     }
 
 
-}
+    }
+
+

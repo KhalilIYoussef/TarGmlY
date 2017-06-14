@@ -1,5 +1,5 @@
 
-package khaliliyoussef.gradproject;
+package khaliliyoussef.gradproject.view;
 
 import android.util.Log;
 import android.util.SparseArray;

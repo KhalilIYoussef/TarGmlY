@@ -2,15 +2,15 @@ package khaliliyoussef.gradproject.view;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,7 +28,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -40,16 +39,17 @@ import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.COLUMN_ENG
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ARABIC;
 import static khaliliyoussef.gradproject.data.TransContract.TaskEntry.CONTENT_URI_ENGLISH;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Toolbar toolbar;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int RC_OCR_CAPTURE = 9003;
-
     EditText editText;
     TextView textView;
     ImageButton searchButton;
     ImageButton cameraButton;
     ImageButton audioButton;
+    ImageButton favoriteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -77,10 +77,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         searchButton= (ImageButton) findViewById(R.id.searchButton);
         editText= (EditText) findViewById(R.id.EditText_word);
         searchButton= (ImageButton) findViewById(R.id.searchButton);
-        //insert general words words
-            // InsertWords.insertGeneralWords(this);
+        favoriteButton= (ImageButton) findViewById(R.id.favorite);
+
+
+        //by default it's Scientific dictionary
         //insert Scientific words
-        InsertWords.insertScientificWords(this);
+               ResetDatabaseType();
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +170,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else
                     cameraButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
-                new Handler().postDelayed(new Runnable() {
+                new Handler().postDelayed(new Runnable()
+                {
 
                     public void run() {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -206,8 +209,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    favoriteButton.setBackground(getDrawable(R.drawable.button_background_pressed));
+                }
+                else
+                    favoriteButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
+                new Handler().postDelayed(new Runnable()
+                {
+
+                    public void run() {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            favoriteButton.setBackground(getDrawable(R.drawable.button_background));
+                        }
+                        else
+                            favoriteButton.setBackground(getResources().getDrawable(R.drawable.button_background));
+                    }
+                }, 250);
+                Intent intent = new Intent(MainActivity.this, OnlineActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
 
     }
+
+    private void ResetDatabaseType() {
+        SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String databaseType=preferences.getString(getString(R.string.pref_type_key),getString(R.string.pref_insert_scientific));
+        if(preferences.getBoolean(getString(R.string.pref_reset_database),true))
+        {
+            CheckDatabaseType();
+            }
+        }
+
+    private void CheckDatabaseType() {
+        SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String databaseType=preferences.getString(getString(R.string.pref_type_key),getString(R.string.pref_insert_scientific));
+
+    if (databaseType.equals(getString(R.string.pref_insert_general))) {
+        InsertWords.insertGeneralWords(this);
+        Toast.makeText(this, "General Words added", Toast.LENGTH_SHORT).show();
+    } else if (databaseType.equals(getString(R.string.pref_insert_scientific))) {
+        InsertWords.insertScientificWords(this);
+        Toast.makeText(this, "Scientific Words added", Toast.LENGTH_SHORT).show();
+    } else {
+        InsertWords.insertScientificWords(this);
+        Toast.makeText(this, "else block", Toast.LENGTH_SHORT).show();
+    }
+}
+
+
 
 
     @Override
@@ -219,27 +275,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.addWord)
+        if(item.getItemId()==R.id.rateUs)
         {
-            new AsyncTaskLoader(this) {
-                @Override
-                public Object loadInBackground() {
-                    InsertWords.insertGeneralWords(MainActivity.this);
-                    return null;
-                }
-            };
+           // InsertWords.insertGeneralWords(MainActivity.this);
 
         }
-else if(item.getItemId()==R.id.addScientificWords)
+else if(item.getItemId()==R.id.someThing)
         {
 
-            new AsyncTaskLoader(this) {
-                @Override
-                public Object loadInBackground() {
-                    InsertWords.insertScientificWords(MainActivity.this);
-                    return null;
-                }
-            };
+           // InsertWords.insertScientificWords(MainActivity.this);
+        }
+        else if (item.getItemId()==R.id.settings)
+        {
+            Intent intent =new Intent(MainActivity.this, Settings.class);
+            startActivity(intent);
+
         }
 
         return true;
@@ -277,7 +327,7 @@ else if(item.getItemId()==R.id.addScientificWords)
                     Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
 
                    // editText.setText(text);
-                    textView.setText(text);
+                    editText.setText(text);
                     //TODO  Log.d(TAG, "Text read: " + text);
                 } else
                 {
@@ -296,7 +346,7 @@ else if(item.getItemId()==R.id.addScientificWords)
 
                         ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                        // editText.setText(result.get(0));
-                        textView.setText(result.get(0));
+                        editText.setText(result.get(0));
                     }
                     break;
                 }
@@ -321,23 +371,62 @@ else if(item.getItemId()==R.id.addScientificWords)
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home)
+        {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        }
+        else if (id == R.id.nav_online)
+        {
+            Intent intent =new Intent(this,OnlineActivity.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        }
+        else if (id == R.id.nav_settings)
+        {
+            Intent intent =new Intent(this,Settings.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_add)
+        {
+            Intent intent =new Intent(this,AddWord.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_share)
+        {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    "Hey check out my app at: https://play.google.com/store/apps/details?id=com.google.android.apps.plus");
+            sendIntent.setType("text/plain");
+            startActivity(Intent.createChooser(sendIntent,"Share With"));
 
-        } else if (id == R.id.nav_manage) {
+        }
+        else if (id == R.id.nav_send)
+        {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            Intent intent=new Intent(Intent.ACTION_SEND);
+            intent.setData(Uri.parse("mailto:"));
+            String [] to={getString(R.string.email)};
+            intent.putExtra(Intent.EXTRA_EMAIL,to);
+            intent.setType("message/rfc822");
+            Intent chooser=Intent.createChooser(intent,"Send With");
+            startActivity(chooser);
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        ResetDatabaseType();
+     //  CheckDatabaseType();
+
     }
 
 

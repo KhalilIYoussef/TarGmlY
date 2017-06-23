@@ -11,5 +11,12 @@
 
     <string name="action_settings">Settings</string>
     <string name="email">khalilibrahim865@gmail.com</string>
+    <string name="pref_type_key">databaseType</string>
+    <string name="pref_insert_scientific">Scientific</string>
+    <string name="pref_insert_general">General</string>
+    <string name="pref_reset_database">resetDatabase</string>
+    <string name="edTextEng">English or Arabic</string>
+    <string name="buttonTranslate">translate</string>
+    <string name="textRus">Translation here</string>
 
 </resources>

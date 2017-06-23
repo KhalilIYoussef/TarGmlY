@@ -1,11 +1,13 @@
 package khaliliyoussef.gradproject.view;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import khaliliyoussef.gradproject.R;
 
@@ -28,6 +30,7 @@ public class SplashScreen extends AppCompatActivity {
             public void onAnimationStart(Animation animation)
             {
 
+                Snackbar.make(findViewById(R.id.splash_layout),"Welcome To TarGmly",Snackbar.LENGTH_SHORT).show();
             }
 
             @Override

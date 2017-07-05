@@ -46,11 +46,14 @@ public class Settings extends PreferenceActivity {
                     {
                         InsertWords.insertGeneralWords(getActivity().getApplicationContext());
                         Toast.makeText(getActivity(), "General database added", Toast.LENGTH_SHORT).show();
+                        listPreference.setValue(getString(R.string.pref_insert_general));
                     }
                     else if(newValue.toString().equals(getString(R.string.pref_insert_scientific)))
                     {
                         InsertWords.insertScientificWords(getActivity().getApplicationContext());
                         Toast.makeText(getActivity(), "Scientific Database added", Toast.LENGTH_SHORT).show();
+                        listPreference.setValue(getString(R.string.pref_insert_scientific));
+
                     }
                         return false;
                 }
@@ -61,6 +64,7 @@ public class Settings extends PreferenceActivity {
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     InsertWords.insertScientificWords(getActivity());
                     checkBoxPreference.equals(false);
+                    listPreference.setValue(getString(R.string.pref_insert_scientific));
                     Toast.makeText(getActivity(),"Database reseted to default",Toast.LENGTH_SHORT).show();
 
                     return false;

@@ -1950,313 +1950,313 @@ public class InsertWords  {
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"odd");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"فردى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فردى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"office");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مكتب");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مكتب");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"orange");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"برتقالى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"برتقالى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"offer");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يعرض");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يعرض");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"option");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"خيار");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"خيار");
         list.add(cv);
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"operation");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"عملية");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"عملية");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"object");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"جسم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"جسم");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"occur");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يحدث");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يحدث");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"open");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يفتح");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يفتح");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"obvious");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"واضح");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"واضح");
         list.add(cv);
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"organization");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"منظمة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"منظمة");
         list.add(cv);
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ocean");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"محيط");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"محيط");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"occupied");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"محتل");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"محتل");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"official");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"رسمى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"رسمى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"often");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"غالبا");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"غالبا");
         list.add(cv);
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"oil");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"زيت");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"زيت");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"old");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"قديم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"قديم");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"only");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"فقط");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فقط");
         list.add(cv);
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"onion");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"بصل");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"بصل");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"oven");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"فرن");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فرن");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"order");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"طلب");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"طلب");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"opportunity");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"فرصة ");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فرصة ");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"opposite");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"عكس");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"عكس");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ordinary");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"عادى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"عادى");
         list.add(cv);
         //TODO (P)
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"part");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"جزأ");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"جزأ");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"past");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ماضى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ماضى");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"pen");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"قلم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"قلم");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"pencil");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"قلم رصاص");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"قلم رصاص");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"pass");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يمر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يمر");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"passenger");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مسافر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مسافر");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"package");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"صفقة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"صفقة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"paint");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يرسم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يرسم");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"palace");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"قصر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"قصر");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"palm");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"نخلة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"نخلة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"paper");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ورقة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ورقة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"park");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"حديقة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"حديقة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"passport");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"جواز سفر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"جواز سفر");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"patience");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"صبر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"صبر");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"pattern");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"نموذج");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"نموذج");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"period");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"فترة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فترة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"peace");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"سلام");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"سلام");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"penguin");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"بطريق");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"بطريق");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"people");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"أشخاص");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"أشخاص");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"performance");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"أداء");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"أداء");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"perfume");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"عطر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"عطر");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"persist");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يثابر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يثابر");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"pharmacy");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"صيدلية");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"صيدلية");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"philosopher");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"فيلسوف");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"فيلسوف");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"photo");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"صورة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"صورة");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"project");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مشروع");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مشروع");
         list.add(cv);
         //TODO (Q)
 
@@ -2264,264 +2264,264 @@ public class InsertWords  {
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"queen");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ملكة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ملكة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quality");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"جودة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"جودة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"question");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"سؤال");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"سؤال");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quarter");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ربع");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ربع");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"queue");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"طابور");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"طابور");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quantity");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"كمية");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"كمية");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quick");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"سريع");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"سريع");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quiet");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"هدوء");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"هدوء");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"qualifications");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مؤهلات");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مؤهلات");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quiz");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مسابقة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مسابقة");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quail");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ينسحب");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ينسحب");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quantum");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"كمى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"كمى");
         list.add(cv);
 
 
         cv=new
                 ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quite");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"تماما");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"تماما");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quit");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"تنازل");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"تنازل");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quota");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"حصة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"حصة");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quire");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ملزمة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ملزمة");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"quote");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مقولة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مقولة");
         list.add(cv);
 
             //TODO (R)
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"regular");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"اعتيادى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"اعتيادى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"reach");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يصل");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يصل");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"read");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يقرأ");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يقرأ");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"responsible");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مسؤول");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مسؤول");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"ready");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"جاهز");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"جاهز");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"receive");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يستلم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يستلم");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"record");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يسجل");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يسجل");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rain");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"تمطر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"تمطر");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"referee");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"حكم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"حكم");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"relation");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"علاقة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"علاقة");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rarely");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"نادرا");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"نادرا");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"relax");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يسترخى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يسترخى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"remedy");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"علاج");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"علاج");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"restore");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يرجع");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يرجع");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rest");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"راحة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"راحة");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"restuarent");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"مطعم");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"مطعم");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rich");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"غنى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"غنى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"reply");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يرد");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يرد");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rice");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"أرز");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"أرز");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rain");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"تمطر");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"تمطر");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"reception");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"استقبال");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"استقبال");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"round");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"دورة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"دورة");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"row");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"صف");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"صف");
         list.add(cv);
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"run");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"يجرى");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"يجرى");
         list.add(cv);
 
 
         cv=new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"rug");
-        cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"سجادة");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"سجادة");
         list.add(cv);
         //TODO (H)
         cv = new ContentValues();
@@ -3825,7 +3825,7 @@ public class InsertWords  {
         list.add(cv);
         cv = new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"login");
-        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"وُلُوج");
+        cv.put(TransContract.TaskEntry.COLUMN_ARABIC,"ولوج");
         list.add(cv);
         cv = new ContentValues();
         cv.put(TransContract.TaskEntry.COLUMN_ENGLISH,"localization");

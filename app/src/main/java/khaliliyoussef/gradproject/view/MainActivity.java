@@ -1,12 +1,14 @@
 package khaliliyoussef.gradproject.view;
 
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
@@ -14,6 +16,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -81,8 +84,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         //by default it's Scientific dictionary
-        //insert Scientific words
-               ResetDatabaseType();
+        if(savedInstanceState!=null) {
+            Toast.makeText(this, "the default case", Toast.LENGTH_SHORT).show();
+            InsertWords.insertScientificWords(this);
+        }
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,9 +243,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+
     private void ResetDatabaseType() {
         SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
-        String databaseType=preferences.getString(getString(R.string.pref_type_key),getString(R.string.pref_insert_scientific));
+
         if(preferences.getBoolean(getString(R.string.pref_reset_database),true))
         {
             CheckDatabaseType();
@@ -280,11 +287,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            // InsertWords.insertGeneralWords(MainActivity.this);
 
         }
-else if(item.getItemId()==R.id.someThing)
-        {
 
-           // InsertWords.insertScientificWords(MainActivity.this);
-        }
         else if (item.getItemId()==R.id.settings)
         {
             Intent intent =new Intent(MainActivity.this, Settings.class);
@@ -373,10 +376,11 @@ else if(item.getItemId()==R.id.someThing)
 
         if (id == R.id.nav_home)
         {
-            // Handle the camera action
+            // goto home activity
         }
         else if (id == R.id.nav_online)
         {
+            //go onlineActivity
             Intent intent =new Intent(this,OnlineActivity.class);
             startActivity(intent);
 
@@ -413,21 +417,67 @@ else if(item.getItemId()==R.id.someThing)
             startActivity(chooser);
 
         }
-
+else if (id==R.id.nav_about)
+        {
+            //about
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(this);
+            }
+            builder.setTitle("About US")
+                    .setMessage("We are a team of programmers form Faculty of computer and Information, Minia University ,Under The supervision Dr.Alhussien seddik , Khalil Ibrahim , Thomas Edward, Romany Essa, Khalaf Makram, Girgis Monier, Marina Reda, Mariam Moris")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+        else if (id==R.id.nav_copyright)
+        {
+            //copyRights
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(this);
+            }
+            builder.setTitle("CopyRight")
+                    .setMessage("Copyright ©2017. Minia University . All Rights Reserved. Permission to use, copy, modify, and distribute this software and its documentation for educational, research, and not-for-profit purposes, without fee and without a signed licensing agreement")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
+//    @Override
+//    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+//        super.onSaveInstanceState(outState, outPersistentState);
+//        outState.putBoolean("IsFirst",false);
+//
+//    }
 
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-        ResetDatabaseType();
-     //  CheckDatabaseType();
 
-    }
 
 
 }

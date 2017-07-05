@@ -6,11 +6,7 @@
     android:title="Rate US">
 
 </item>
-    <item app:showAsAction="never"
-        android:id="@+id/someThing"
-        android:title="Some Thing">
 
-    </item>
     <item
         android:id="@+id/settings"
         app:showAsAction="never"

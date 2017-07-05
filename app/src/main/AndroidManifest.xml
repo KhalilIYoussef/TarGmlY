@@ -36,6 +36,7 @@
         </activity>
         <activity android:name=".view.AddWord" />
         <activity android:name=".view.OnlineActivity"></activity>
+
     </application>
 
 </manifest>

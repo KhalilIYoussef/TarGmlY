@@ -70,8 +70,8 @@ public class OnlineActivity extends AppCompatActivity {
         onlineEditText = (EditText) findViewById(R.id.online_editText);
         onlineTextView = (TextView) findViewById(R.id.online_textView);
         buttonTranslate = (ImageButton) findViewById(R.id.online_search_button);
-        onlineAudioButton = (ImageButton) findViewById(R.id.online_audio_button);
-        onlineCameraButton = (ImageButton) findViewById(R.id.online_camera_button);
+//        onlineAudioButton = (ImageButton) findViewById(R.id.online_audio_button);
+//        onlineCameraButton = (ImageButton) findViewById(R.id.online_camera_button);
 
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -129,55 +129,55 @@ public class OnlineActivity extends AppCompatActivity {
             }
         });
 
-
-        onlineCameraButton.setOnClickListener(new View.OnClickListener()
-
-        {
-            @Override
-            public void onClick(View v) {
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    onlineCameraButton.setBackground(getDrawable(R.drawable.button_background_pressed));
-                } else
-                    onlineCameraButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
-                new Handler().postDelayed(new Runnable() {
-
-                    public void run() {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            onlineCameraButton.setBackground(getDrawable(R.drawable.button_background));
-                        } else
-                            onlineCameraButton.setBackground(getResources().getDrawable(R.drawable.button_background));
-                    }
-                }, 250);
-                Intent intent = new Intent(OnlineActivity.this, OcrCaptureActivity.class);
-                startActivityForResult(intent, RC_OCR_CAPTURE);
-            }
-        });
-
-        onlineAudioButton.setOnClickListener(new View.OnClickListener()
-
-        {
-            @Override
-            public void onClick(View v) {
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    onlineAudioButton.setBackground(getDrawable(R.drawable.button_background_pressed));
-                } else
-                    onlineAudioButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
-                new Handler().postDelayed(new Runnable() {
-
-                    public void run() {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            onlineAudioButton.setBackground(getDrawable(R.drawable.button_background));
-                        } else
-                            onlineAudioButton.setBackground(getResources().getDrawable(R.drawable.button_background));
-                    }
-                }, 250);
-                askSpeechInput();
-            }
-        });
-
-    }
+//
+//        onlineCameraButton.setOnClickListener(new View.OnClickListener()
+//
+//        {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    onlineCameraButton.setBackground(getDrawable(R.drawable.button_background_pressed));
+//                } else
+//                    onlineCameraButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
+//                new Handler().postDelayed(new Runnable() {
+//
+//                    public void run() {
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                            onlineCameraButton.setBackground(getDrawable(R.drawable.button_background));
+//                        } else
+//                            onlineCameraButton.setBackground(getResources().getDrawable(R.drawable.button_background));
+//                    }
+//                }, 250);
+//                Intent intent = new Intent(OnlineActivity.this, OcrCaptureActivity.class);
+//                startActivityForResult(intent, RC_OCR_CAPTURE);
+//            }
+//        });
+//
+//        onlineAudioButton.setOnClickListener(new View.OnClickListener()
+//
+//        {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    onlineAudioButton.setBackground(getDrawable(R.drawable.button_background_pressed));
+//                } else
+//                    onlineAudioButton.setBackground(getResources().getDrawable(R.drawable.button_background_pressed));
+//                new Handler().postDelayed(new Runnable() {
+//
+//                    public void run() {
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                            onlineAudioButton.setBackground(getDrawable(R.drawable.button_background));
+//                        } else
+//                            onlineAudioButton.setBackground(getResources().getDrawable(R.drawable.button_background));
+//                    }
+//                }, 250);
+//                askSpeechInput();
+//            }
+//        });
+//
+  }
 
 
     private void askSpeechInput() {
